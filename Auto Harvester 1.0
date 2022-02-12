@@ -1,0 +1,148 @@
+player.onChat("harvest", function (length, width, type_of_farm) {
+    type_of_farm = 0
+    Carrot = "carrot"
+    Melon = "melon"
+    Netherwart = "netherwart"
+    Wheat = "wheat"
+    Pumpkin = "pumpkin"
+    Sugar_cane = "sugar cane"
+    Beet = "beetroot"
+    if (type_of_farm == 0) {
+        actuall_length = length - 1
+        agent.teleportToPlayer()
+        teleport_position = agent.getPosition()
+        agent.destroy(FORWARD)
+        agent.collectAll()
+        agent.place(FORWARD)
+        agent.move(FORWARD, 1)
+        agent.destroy(FORWARD)
+        for (let index = 0; index < width / 2; index++) {
+            for (let index = 0; index < actuall_length; index++) {
+                agent.move(FORWARD, 1)
+                agent.destroy(FORWARD)
+                agent.collectAll()
+                agent.place(DOWN)
+            }
+            agent.turn(RIGHT_TURN)
+            agent.destroy(FORWARD)
+            agent.place(FORWARD)
+            agent.move(FORWARD, 1)
+            agent.turn(RIGHT_TURN)
+            agent.destroy(FORWARD)
+            agent.collectAll()
+            agent.place(FORWARD)
+            for (let index = 0; index < actuall_length; index++) {
+                agent.destroy(FORWARD)
+                agent.move(FORWARD, 1)
+                agent.destroy(FORWARD)
+                agent.collectAll()
+                agent.place(DOWN)
+            }
+            agent.turn(LEFT_TURN)
+            agent.destroy(FORWARD)
+            agent.place(FORWARD)
+            agent.move(FORWARD, 1)
+            agent.turn(LEFT_TURN)
+            agent.destroy(FORWARD)
+            agent.collectAll()
+            agent.place(FORWARD)
+        }
+        agent.teleport(teleport_position, SOUTH)
+        agent.move(BACK, 2)
+        agent.dropAll(BACK)
+    }
+    if (type_of_farm == 1) {
+        actuall_length = length - 1
+        agent.teleportToPlayer()
+        teleport_position = agent.getPosition()
+        agent.destroy(FORWARD)
+        agent.collectAll()
+        agent.move(FORWARD, 1)
+        agent.destroy(FORWARD)
+        for (let index = 0; index < width / 4; index++) {
+            for (let index = 0; index < actuall_length; index++) {
+                agent.move(FORWARD, 1)
+                agent.destroy(FORWARD)
+                agent.collectAll()
+            }
+            agent.turn(RIGHT_TURN)
+            agent.move(FORWARD, 1)
+            agent.destroy(FORWARD)
+            agent.collectAll()
+            agent.move(FORWARD, 1)
+            agent.turn(RIGHT_TURN)
+            agent.destroy(FORWARD)
+            agent.collectAll()
+            for (let index = 0; index < actuall_length; index++) {
+                agent.move(FORWARD, 1)
+                agent.destroy(FORWARD)
+                agent.collectAll()
+            }
+            agent.turn(LEFT_TURN)
+            agent.move(FORWARD, 1)
+            agent.destroy(FORWARD)
+            agent.move(FORWARD, 1)
+            agent.collectAll()
+            agent.turn(LEFT_TURN)
+            agent.destroy(FORWARD)
+            agent.collectAll()
+        }
+        agent.teleport(teleport_position, SOUTH)
+        agent.move(BACK, 2)
+        agent.dropAll(BACK)
+        agent.turn(LEFT_TURN)
+    }
+    if (type_of_farm == 2) {
+        actuall_length = length - 1
+        agent.teleportToPlayer()
+        teleport_position = agent.getPosition()
+        agent.move(UP, 1)
+        agent.destroy(FORWARD)
+        agent.collectAll()
+        agent.move(FORWARD, 1)
+        agent.destroy(FORWARD)
+        for (let index = 0; index < width / 4; index++) {
+            for (let index = 0; index < actuall_length; index++) {
+                agent.move(FORWARD, 1)
+                agent.destroy(FORWARD)
+                agent.collectAll()
+            }
+            agent.turn(RIGHT_TURN)
+            agent.move(FORWARD, 1)
+            agent.destroy(FORWARD)
+            agent.move(FORWARD, 1)
+            agent.collectAll()
+            agent.turn(RIGHT_TURN)
+            agent.destroy(FORWARD)
+            agent.collectAll()
+            for (let index = 0; index < actuall_length; index++) {
+                agent.move(FORWARD, 1)
+                agent.destroy(FORWARD)
+                agent.collectAll()
+            }
+            agent.turn(LEFT_TURN)
+            agent.move(FORWARD, 1)
+            agent.destroy(FORWARD)
+            agent.move(FORWARD, 1)
+            agent.collectAll()
+            agent.turn(LEFT_TURN)
+            agent.destroy(FORWARD)
+            agent.collectAll()
+        }
+        agent.teleport(teleport_position, SOUTH)
+        agent.move(BACK, 2)
+        agent.dropAll(BACK)
+        agent.turn(LEFT_TURN)
+    }
+})
+let teleport_position: Position = null
+let actuall_length = 0
+let Beet = ""
+let Sugar_cane = ""
+let Pumpkin = ""
+let Wheat = ""
+let Netherwart = ""
+let Melon = ""
+let Carrot = ""
+player.say("Type harvest (length of the farm no parenthases) (width of the farm no parenthases) (0 for beetroot, carrot, potatoes, netherwart, wheat anything like that. 1 is melon or pumpkin. and 2 is sugarcane no parenthases)")
+player.say("Also you can leave the bottom left corner once the agent starts going")
